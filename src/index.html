@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snake!</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<script id="shader-fs" type="x-shader/x-fragment">
+		precision mediump float;
+		uniform vec4 colour;
+
+		void main(void) {
+			gl_FragColor = colour;
+		}
+	</script>
+</head>
+<body>
+
+	<h2>Snake time.</h2>
+
+	<canvas id="app" height="600" width="600"></canvas>
+	<script type="text/javascript" src="./app.js"></script>
+
+</body>
+</html>
