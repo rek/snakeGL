@@ -10,6 +10,9 @@ class WebpackDevConfig extends WebpackBaseConfig {
 
   constructor() {
     super();
+
+    console.log('Loading -DEV- Config.');
+
     this.config = {
       devtool: 'cheap-module-source-map',
       entry: [

@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Snake!</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
 
-	<script id="shader-fs" type="x-shader/x-fragment">
-		precision mediump float;
-		uniform vec4 colour;
+<html lang='en'>
+	<head>
+		<title>Snake!</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
 
-		void main(void) {
-			gl_FragColor = colour;
-		}
-	</script>
-</head>
-<body>
+	<body>
+		<div id="app"></div>
+		<canvas id="snake" height="600" width="600" tabindex="1"></canvas>
 
-	<h2>Snake time.</h2>
-
-	<canvas id="app" height="600" width="600"></canvas>
-	<script type="text/javascript" src="./app.js"></script>
-
-</body>
+		<script type="text/javascript" src="assets/app.js"></script>
+	</body>
 </html>
