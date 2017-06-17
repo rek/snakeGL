@@ -1,0 +1,1225 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ver",
+				"vertex1"
+			],
+			[
+				"shad",
+				"shaderProgram"
+			],
+			[
+				"A",
+				"ARRAY_BUFFER"
+			],
+			[
+				"vert",
+				"vertexShader"
+			],
+			[
+				"sha",
+				"shaderProgram"
+			],
+			[
+				"integra",
+				"integration"
+			],
+			[
+				"In",
+				"Integrations"
+			],
+			[
+				"res",
+				"responseConfig"
+			],
+			[
+				"retr",
+				"return"
+			],
+			[
+				"set",
+				"setLastSync"
+			],
+			[
+				"mo",
+				"moduleName"
+			],
+			[
+				"inte",
+				"integrationsLoaded"
+			],
+			[
+				"re",
+				"reducer"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"sele",
+				"Selenium"
+			],
+			[
+				"block",
+				"blockId"
+			],
+			[
+				"hand",
+				"handleClose"
+			],
+			[
+				"han",
+				"handleSuccess"
+			],
+			[
+				"Pro",
+				"Promise\tES6 Promise"
+			],
+			[
+				"pro",
+				"processor"
+			],
+			[
+				"in",
+				"invoice"
+			],
+			[
+				"clas",
+				"className"
+			],
+			[
+				"ex",
+				"extras"
+			],
+			[
+				"dra",
+				"drabayashi"
+			],
+			[
+				"xero",
+				"xeroFields"
+			],
+			[
+				"name",
+				"namespace"
+			],
+			[
+				"xer",
+				"xeroSearchable"
+			],
+			[
+				"togg",
+				"toggleEditing"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"map",
+				"mappings"
+			],
+			[
+				"intr",
+				"intergrations"
+			],
+			[
+				"finis",
+				"finishedLoading"
+			],
+			[
+				"integr",
+				"integrationIndex"
+			],
+			[
+				"fin",
+				"finishedLoading"
+			],
+			[
+				"to",
+				"toLowerCase"
+			],
+			[
+				"for",
+				"forceEnable"
+			],
+			[
+				"handle",
+				"handleSave"
+			],
+			[
+				"rea",
+				"react.class\treact.class"
+			],
+			[
+				"strip",
+				"stripCommas"
+			],
+			[
+				"impo",
+				"imported"
+			],
+			[
+				"cook",
+				"cookieDomain"
+			],
+			[
+				"force",
+				"forceName"
+			],
+			[
+				"fie",
+				"firstenglish"
+			],
+			[
+				"busS",
+				"business"
+			],
+			[
+				"cle",
+				"cleanData"
+			],
+			[
+				"_",
+				"_updateSigners"
+			],
+			[
+				"par",
+				"partyKey"
+			],
+			[
+				"class",
+				"class\tES6 Class"
+			],
+			[
+				"mode",
+				"model"
+			],
+			[
+				"gen",
+				"general"
+			],
+			[
+				"sign",
+				"signers"
+			],
+			[
+				"csu",
+				"customUser"
+			],
+			[
+				"ea",
+				"ea\tes6-each"
+			],
+			[
+				"show",
+				"showAddNewSigner"
+			],
+			[
+				"getSign",
+				"getSigningParties"
+			],
+			[
+				"create",
+				"createPartylessSigner"
+			],
+			[
+				"Sec",
+				"SectionComponent"
+			],
+			[
+				"bus",
+				"businessSignersReset"
+			],
+			[
+				"perso",
+				"personSignersReset"
+			],
+			[
+				"pa",
+				"partySigners"
+			],
+			[
+				"bu",
+				"businessSigners"
+			],
+			[
+				"is",
+				"isExpired"
+			],
+			[
+				"sig",
+				"signerInfo"
+			],
+			[
+				"busine",
+				"Business"
+			],
+			[
+				"render",
+				"renderSignerComponent"
+			],
+			[
+				"ca",
+				"cachedLogo"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"Ba",
+				"Backbone"
+			],
+			[
+				"noti",
+				"notifications"
+			],
+			[
+				"found",
+				"foundOrg"
+			],
+			[
+				"forma",
+				"formattedTotal"
+			],
+			[
+				"an",
+				"answer"
+			],
+			[
+				"party",
+				"partyMode"
+			],
+			[
+				"sub",
+				"subBlock"
+			],
+			[
+				"ans",
+				"answered"
+			],
+			[
+				"doc",
+				"doctype"
+			],
+			[
+				"result",
+				"results"
+			],
+			[
+				"Int",
+				"Intercom"
+			],
+			[
+				"from",
+				"fromStore"
+			],
+			[
+				"dl",
+				"dlOff"
+			],
+			[
+				"ch",
+				"checkingCount"
+			],
+			[
+				"hist",
+				"historyOptions"
+			],
+			[
+				"child",
+				"childViewOptions"
+			],
+			[
+				"data",
+				"dataSet"
+			],
+			[
+				"Regi",
+				"Registering"
+			],
+			[
+				"de",
+				"deregister"
+			],
+			[
+				"templ",
+				"templateHelpers"
+			],
+			[
+				"juri",
+				"juriSelected"
+			],
+			[
+				"ha",
+				"handleLearning"
+			],
+			[
+				"get",
+				"getDoctype"
+			],
+			[
+				"inner",
+				"innerProps"
+			],
+			[
+				"outer",
+				"outerProps"
+			],
+			[
+				"toek",
+				"tokenFailed"
+			],
+			[
+				"dro",
+				"dropdown__item"
+			],
+			[
+				"num",
+				"numberAffixed"
+			],
+			[
+				"jur",
+				"juriSelected"
+			],
+			[
+				"cal",
+				"callList"
+			],
+			[
+				"con",
+				"contextName"
+			],
+			[
+				"ty",
+				"typeData"
+			],
+			[
+				"cl",
+				"className"
+			],
+			[
+				"dis",
+				"discountMode"
+			],
+			[
+				"blo",
+				"blockTwo"
+			],
+			[
+				"po",
+				"processor"
+			],
+			[
+				"mon",
+				"moneyFound"
+			],
+			[
+				"talb",
+				"tableConfig"
+			],
+			[
+				"ta",
+				"tableConfig"
+			],
+			[
+				"tot",
+				"totalCell"
+			],
+			[
+				"per",
+				"percent"
+			],
+			[
+				"out",
+				"outPath"
+			],
+			[
+				"c",
+				"classes"
+			],
+			[
+				"drop",
+				"dropzone"
+			],
+			[
+				"Sub",
+				"Subscriptions"
+			],
+			[
+				"gett",
+				"gettingAllEntitlements"
+			],
+			[
+				"Base",
+				"BaseApp"
+			],
+			[
+				"app",
+				"appTheme"
+			],
+			[
+				"l",
+				"l\tLogger"
+			],
+			[
+				"docu",
+				"documentExtras"
+			],
+			[
+				"subBl",
+				"subBlocks"
+			],
+			[
+				"su",
+				"subblocks"
+			],
+			[
+				"sho",
+				"shoppingCartItems"
+			],
+			[
+				"pay",
+				"paymentMethod"
+			],
+			[
+				"ite",
+				"itemToDiscount"
+			],
+			[
+				"cout",
+				"countable"
+			],
+			[
+				"all",
+				"allAvailable"
+			],
+			[
+				"cur",
+				"currentUserId"
+			],
+			[
+				"not",
+				"notify"
+			],
+			[
+				"org",
+				"organisation"
+			],
+			[
+				"b",
+				"button"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/app.js",
+			"settings":
+			{
+				"buffer_size": 2785,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/shaders/fragment1.fs",
+			"settings":
+			{
+				"buffer_size": 91,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/shaders/vertex1.vs",
+			"settings":
+			{
+				"buffer_size": 120,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 235.0,
+		"last_filter": "theme",
+		"selected_items":
+		[
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"Snippet: ",
+				"Snippet: constructor"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"package",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Enable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"jshint",
+				"JSHint: Set Plugin Options"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 477.0
+	},
+	"console":
+	{
+		"height": 231.0,
+		"history":
+		[
+			"sss"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/rek/dev/snake",
+		"/home/rek/dev/snake/src",
+		"/home/rek/dev/snake/src/shaders"
+	],
+	"file_history":
+	[
+		"/home/rek/dev/snake/src/index.html",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/show/templates/guide_show_intro.dust.coffee",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/templates/guide_browse.dust.coffee",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/view.js",
+		"/home/rek/Documents/notes",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/components/guide_browse_slat.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/components/guide_browse_list.js",
+		"/home/rek/dev/dragonlaw/package.json",
+		"/home/rek/dev/dragonlaw/src/info.json",
+		"/home/rek/dev/dragonlaw/src/scripts/test/suiteConfig.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/test/controllerSearch.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/test/controllerCreate.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/test/controllerEdit.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/test/controllerList.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/pickerAdmin/test/search/controller.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/pickerAdmin/test/list/controller.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/controllerSearch.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/pickerAdmin/search/controller.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/pickerAdmin/loader.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/pickerAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/pickerAdmin/test/edit/controller.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/loader.js",
+		"/home/rek/dev/dragonlaw/.gitlab-ci.yml",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/user/test/entities/party.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/test/edit/controller.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/paymentAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/paymentAdmin/test/card/view.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/paymentAdmin/test/card/controller.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/paymentAdmin/loader.js",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/baseApp.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/config/app.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/edit/components.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/marketAdmin/edit/controller.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/marketAdmin/list/controller.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/marketAdmin/loader.js",
+		"/home/rek/dev/dragon-law-express-registration/embed/payload.js",
+		"/home/rek/dev/dragon-law-express-registration/CHANGELOG",
+		"/home/rek/dev/dragon-law-express-registration/info.json",
+		"/home/rek/dev/dragon-law-express-registration/package.json",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/baseAppCore.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/marketAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/menu/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/org/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guideAdmin/loader.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/config/app-local.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/config/app-dev.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/folder/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guideAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/guideAdmin/test/builder/steps/controller.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/folder/test/app.spec.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/components/Hero.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/documentAdmin/loader.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/documentAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/documentAdmin/test/create/view.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/test/sign/view.spec.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/index.prod.html",
+		"/home/rek/dev/dragon-law-partner-sites/package.json",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/test/app.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/app.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/config/prod.js",
+		"/home/rek/dev/dragon-law-partner-sites/.gitlab-ci.yml",
+		"/home/rek/dev/dragonlaw/src/scripts/common/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/doctypeAdmin/test/slicer/view.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/app.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/intercom/app.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/doctypeAdmin/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/auth/test/app.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/freshchat.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/test/promoManager.spec.js",
+		"/home/rek/dev/dragon-law-admin/src/scripts/common/config/app-prod.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/containers/App.js",
+		"/home/rek/dev/dragon-law-partner-sites/conf/webpack/prod.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/config/staging.js",
+		"/home/rek/dev/dragon-law-partner-sites/conf/webpack/test.js",
+		"/home/rek/dev/dragon-law-partner-sites/conf/webpack/index.js",
+		"/home/rek/dev/dragon-law-partner-sites/conf/webpack/dev.js",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/auth/test/entities/user.spec.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/components/App.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/party.js",
+		"/home/rek/dev/dragon-law-admin/src/scripts/modules/partnerSite/components/edit.js",
+		"/home/rek/dev/dragon-law-admin/src/scripts/common/config/app-dev.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/components/Plans.js",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/common/test/paymentBuilder.spec.js",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/common/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/config/app-prod.js",
+		"/home/rek/dev/dragonlaw/src/scripts/common/config/app-staging.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/xero/app.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/components/Features.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/info.json",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/menu/horizontal/controller.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/config/dev.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/config/dist.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/components/Footer.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/reducers/plans.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/containers/hero.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/containers/plans.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/actions/index.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/actions/saveConfig.js",
+		"/home/rek/dev/dragon-law-partner-sites/src/actions/const.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/controller.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/finalize/controller.js",
+		"/home/rek/dev/dragonlaw/src/index.coffee",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/xero/entities/xero.js",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/common/components/autocomplete.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/lib/documentLifecycle.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/table.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/xero/components/main.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/components/settings.js",
+		"/home/rek/dev/dragon-law-partner-sites/README.md",
+		"/home/rek/dev/dragonlaw/.gitignore",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/loader.js",
+		"/home/rek/dev/dragonlaw/src/scripts/test/app-test.js",
+		"/home/rek/dev/dragonlaw/src/scripts/baseApp/baseModels.js",
+		"/home/rek/dev/dragonlaw/out/imported/backbone-marionette.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/help/loaderTest.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/xero/components/disconnect.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/edit/controller.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/view.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/baseCommon.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/base.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/viewSection.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/doctype/entities/blockCore.js",
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/lib/documentExtras.js",
+		"/home/rek/Downloads/videos/higher-order-components-with-functional-patterns-using-recompose/10.js"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 94.0,
+		"where_history":
+		[
+			"/home/rekarnar/dev/dragonlawd/src/documents/scripts/modules/section/edit/templates"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"vertex",
+			"console",
+			"create",
+			"Create",
+			"create",
+			"Search",
+			"search",
+			"create",
+			"Create",
+			"create",
+			"/",
+			"loadPage",
+			"List",
+			"Create",
+			"payment",
+			"CreditCard",
+			"edit",
+			"partner",
+			"paymentAdmin",
+			"payment",
+			"/users/me",
+			"app.log",
+			"loggr",
+			"loggou",
+			"api.",
+			"node",
+			"$",
+			"NODE_ENV",
+			"market_admin_entity",
+			"getEnvURL",
+			"getEnvAPI",
+			"\n\t\t",
+			"app_options",
+			"setFeature",
+			"getParentQuestion",
+			"GuideBuilder",
+			"addMenus",
+			"copyProd",
+			"wc",
+			"getDisplayAmount",
+			"PromoManager",
+			"logGroup",
+			"integrations:",
+			":stop",
+			"passive",
+			"setup:user:modules:loaded",
+			"load:startup:features",
+			":",
+			":start",
+			"start",
+			"https://partner-admin.api.dragonlaw.com.hk:443",
+			"'.drabayashi.net'",
+			"dist",
+			"staging",
+			"dist",
+			"View.Guides",
+			"GuideCategorys",
+			"PartySignerComponent",
+			"xero",
+			"integr",
+			"plans",
+			"plan",
+			"LOAD_HEADER",
+			"features",
+			"loadFeatures",
+			"LOAD_FEATURES",
+			"LOAD_HEADER",
+			", ",
+			"config",
+			"let",
+			"var",
+			"cookie",
+			"\"",
+			"getTemplateHelpers",
+			"SectionSigners",
+			"reducer",
+			"getTemplateHelpers",
+			"integra",
+			"integrationPartials",
+			"xero",
+			"page",
+			"connect",
+			"checkState",
+			"connect",
+			"checkState",
+			"this.props.",
+			"integrat",
+			"message",
+			"hide",
+			"_register",
+			"group",
+			"_register",
+			"registering",
+			"IntegrationActions",
+			"this.",
+			"finishedLoading",
+			"module",
+			"modules/integrations/app",
+			"help",
+			"deRegister",
+			"setup",
+			"load:startup:features",
+			"load:startup:features\n\n\t\t\t\t\t\t});",
+			"setup:user:modules:loaded",
+			"usermodul",
+			"lastSync",
+			"lastUpdate",
+			"last_update",
+			"Domain prefix (Required)",
+			".log",
+			"log",
+			"    --bucket=app.drabayashi.net",
+			"moveToFolder",
+			"keys[0]",
+			"keys[1]",
+			"var",
+			"checkConditions",
+			"setupAllInputs",
+			"checkConditions",
+			"showPage",
+			"action",
+			"setAction",
+			"setLoading",
+			"this.state.doingAction = false",
+			"this.doingAction",
+			"result",
+			"https://api-xconnect.staging.drabayashi.net",
+			"changedList"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"\"",
+			"'",
+			"3",
+			"\t\tObject.assign({",
+			"'",
+			"SELENIUM_DEPLOY_BUCKET",
+			"'",
+			"\n\t\th3 '{rawName}'\n\t\tinput '.form__element', type: 'text', id: 'unit{_id}', name: 'addresses[{_id}]unit', value: '{address.unit}'",
+			"'",
+			"{@eq key=required value=\"true\"}data-parsley-required{/eq}",
+			"App.Auth.radio.request('auth:user')",
+			"'",
+			"",
+			"org",
+			"Org",
+			"org",
+			"Org",
+			"org",
+			"Org",
+			"'",
+			"mode.value",
+			"'",
+			"\"",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2785,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2166,
+								2166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 266.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "src/shaders/fragment1.fs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/shaders/vertex1.vs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 362.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 88.0
+	},
+	"pinned_build_system": "Packages/User/node.sublime-build",
+	"project": "snake.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"srcapp",
+				"dragonlawd/src/documents/scripts/app.js"
+			],
+			[
+				"srcsubcon",
+				"dragonlawd/src/documents/scripts/modules/user/subscription/controller.js"
+			],
+			[
+				"srcslicernew",
+				"dragonlawd/src/documents/scripts/modules/doctype/slicer/templates/doctype_slicer_new.dust.coffee"
+			],
+			[
+				"srcsession",
+				"dragonlawd/src/documents/scripts/modules/auth/entities/session.js"
+			],
+			[
+				"permiss",
+				"dragonlawd/src/documents/scripts/modules/auth/entities/permission.js"
+			],
+			[
+				"general",
+				"dragonlawd/src/documents/scripts/modules/sidebar/entities/general.js"
+			],
+			[
+				"loader",
+				"dragonlawd/src/documents/scripts/loader.js"
+			],
+			[
+				"guideapp",
+				"dragonlawd/out/scripts/modules/guide/app.js"
+			],
+			[
+				"commonview",
+				"dragonlawd/out/scripts/common/views.js"
+			],
+			[
+				"commonutils",
+				"dragonlawd/out/scripts/common/utils.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/grammar-notes.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 825.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		]
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 356.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
