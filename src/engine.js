@@ -5,16 +5,24 @@ import fragment1 from './shaders/fragment1.fs'
 // console.log('vertex1:', vertex1);
 // console.log('fragment1:', fragment1);
 
+import {Canvas} from './canvasCreator'
+
 export default {
 	gl: false,
 	shaderProgram: false,
 
 	init() {
+		this.context2d = Canvas.Create('2d')
+		this.context2d.init('snakeInfo')
+
 		this.canvas = document.getElementById('snake')
 		this.canvas.focus() // so key watching is ready
 		this.gl = this.canvas.getContext('webgl')
 		this.gl.viewport(0, 0, this.canvas.width, this.canvas.height)
 		this.gl.clearColor(0.9, 0.9, 0.9, 1)
+
+		this.startTime = new Date();
+
 	},
 
 	fillBuffer() {
@@ -55,6 +63,15 @@ export default {
 	createVertices() {
 		this.vertices = [
 			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
 		]
 
 		let buffer = this.gl.createBuffer()
@@ -65,7 +82,15 @@ export default {
 		let coords = this.gl.getAttribLocation(this.shaderProgram, 'coords')
 
 		// say whats in the buffer
-		this.gl.vertexAttribPointer(coords, 2, this.gl.FLOAT, false, 0, 0)
+		this.gl.vertexAttribPointer(
+			coords,
+			2,
+			this.gl.FLOAT,
+			false,
+			0,
+			0
+		)
+
 		this.gl.enableVertexAttribArray(coords)
 		// now we are finished with the buffer, we can unbind it
 		// this.gl.bindBuffer(this.gl.ARRAY_BUFFER, null)

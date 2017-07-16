@@ -4,6 +4,7 @@ import Wrapper from './wrapper'
 import {AppContainer} from 'react-hot-loader';
 
 import Engine from './engine'
+import Food from './food'
 
 import _ from 'lodash-fp'
 
@@ -38,6 +39,12 @@ let Snake = {
 
 	positionX: 0,
 	positionY: 0,
+
+	apples: 0,
+
+	startTime: 0,
+	totalTime: 0,
+	foodAddInterval: 2,
 
 	watchKeys() {
 		this.canvas.addEventListener('keydown', (e) => {
@@ -100,11 +107,21 @@ let Snake = {
 
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT)
 
-		this.gl.drawArrays(this.gl.POINTS, 0, (this.vertices.length / 3))
+		this.gl.drawArrays(
+			this.gl.POINTS,
+			0,
+			1 // amount of objects in buffer to draw
+			// (this.vertices.length / 3)
+		)
+
 		// this.gl.drawArrays(this.gl.TRIANGLES, 0, 3)
 
 		requestAnimationFrame(this.draw.bind(this))
 		// this.log('Drawing.')
+
+        let elapsed = parseInt((new Date() - this.startTime) / 1000);
+		this.context2d.write(elapsed)
+		// this.drawElapsedTime()
 	},
 }
 
