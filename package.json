@@ -4,11 +4,14 @@
   "main": "index.js",
   "author": "rek",
   "license": "MIT",
+  "homepage": "https://rek.github.io/snakeGL",
   "scripts": {
     "clean": "rimraf dist/*",
     "lint": "eslint ./src",
     "dev": "webpack-dev-server --progress --colors --env dev",
-    "start": "yarn dev"
+    "build": "webpack; cp src/index.html build",
+    "start": "yarn dev",
+    "deploy": "yarn build&&gh-pages -d build"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -21,6 +24,7 @@
   },
   "dependencies": {
     "file-loader": "^0.9.0",
+    "gh-pages": "^1.0.0",
     "lodash-fp": "^0.10.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

@@ -232,7 +232,7 @@ class WebpackBaseConfig {
         ]
       },
       output: {
-        path: path.resolve('./dist/assets'),
+        path: path.resolve('./build/assets'),
         // path: path.resolve(__dirname, 'dist'), // <- this breaks it
         filename: 'app.js',
         // publicPath: path.resolve('./dist/assets')
