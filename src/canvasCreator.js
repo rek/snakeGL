@@ -1,19 +1,53 @@
+const _getCanvas = (el, focus = false) => {
+	const canvas = document.getElementById(el)
+
+	if (!canvas) {
+		console.error('Error making canvas with id:', el)
+		return
+	}
+
+	if (focus) {
+		canvas.focus() // so key watching is ready
+	}
+
+	return canvas
+}
+
 export const Canvas = {
 	Create (bundle) {
 		return Object.create(this.types[bundle]);
 	},
 
+
 	types: {
-		'2d': {
-			init(el) {
-				this.canvas = document.getElementById(el)
+		'3d': {
+			init(el, focus) {
+				this.canvas = _getCanvas(el, focus)
 
 				if (!this.canvas) {
-					console.error('Error making canvas with id:', el)
 					return
 				}
 
-				// this.canvas.focus() // so key watching is ready
+				this.context = this.canvas.getContext('webgl')
+				console.log('this.context', this.context);
+				this.context.viewport(0, 0, this.canvas.width, this.canvas.height)
+				this.setColour()
+
+				return this.context
+			},
+
+			setColour(r = 0.9, g = 0.9, b = 0.9, a = 1) {
+				this.context.clearColor(r, g, b, a)
+			},
+		},
+		'2d': {
+			init(el, focus) {
+				this.canvas = _getCanvas(el, focus)
+
+				if (!this.canvas) {
+					return
+				}
+
 				this.context = this.canvas.getContext('2d')
 
 				if (!this.context) {

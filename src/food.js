@@ -1,12 +1,17 @@
 export const Food = {
 	Create (bundle) {
-		return Object.create(this.foods[bundle]);
+		return Object.create(this.food[bundle]);
 	},
 
-	foods: {
-		apple: {
+	food: {
+		apples: {
+			init(context) {
+				this.context = context
+				return this
+			},
+
 			add() {
-				console.log('Vrooom!');
+				console.log('Adding apple!');
 				console.log('this', this);
 			},
 

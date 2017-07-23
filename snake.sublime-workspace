@@ -520,19 +520,22 @@
 	"buffers":
 	[
 		{
+			"contents": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport Wrapper from './wrapper'\nimport {AppContainer} from 'react-hot-loader';\n\nimport Engine from './engine'\nimport {Food} from './food'\n\nimport _ from 'lodash-fp'\n\nconst loopEdges = (positions, edge) => {\n\tconst newPositions = _.clone(positions)\n\n\tif (positions[0].toFixed(2) > edge) {\n\t\tnewPositions[0] = edge * -1\n\t}\n\n\tif (positions[0].toFixed(2) < -edge) {\n\t\tnewPositions[0] = edge\n\t}\n\n\tif (positions[1].toFixed(2) > edge) {\n\t\tnewPositions[1] = edge * -1\n\t}\n\n\tif (positions[1].toFixed(2) < -edge) {\n\t\tnewPositions[1] = edge\n\t}\n\n\treturn newPositions\n}\n\nconst Game = {\n\tinit() {\n\t\tstartTime: 0,\n\t\ttotalTime: 0,\n\t},\n}\n\nconst SnakeGame = _.assign({\n\tapples: 0,\n\tfoodAddInterval: 2,\n\n\twatchKeys(action) {\n\t\tthis.canvas.addEventListener('keydown', (e) => {\n\t\t\t// console.log('nice', e);\n\t\t\tswitch (e.code) {\n\t\t\t\tcase \"ArrowLeft\": this.move(-1, 0); break;\n\t\t\t\tcase \"ArrowRight\": this.move(1, 0); break;\n\t\t\t\tcase \"ArrowUp\": this.move(0, 1); break;\n\t\t\t\tcase \"ArrowDown\": this.move(0, -1); break;\n\t\t\t\tdefault: break;\n\t\t\t}\n\t\t})\n\t},\n}, Game)\n\nlet Snake = {\n\tvertices: [],\n\n\tspeed: 0.02,\n\tdirection: [0, 0],\n\tedge: 0.96,\n\n\tpositionX: 0,\n\tpositionY: 0,\n\n\n\tresetSpeed() {\n\t\tthis.direction = [0, 0]\n\t},\n\n\taddDot() {\n\t\tthis.vertices.push(0.0)\n\t\tthis.vertices.push(0.0)\n\t\tthis.vertices.push(0.0)\n\t\t// console.log('this.vertices', this.vertices);\n\t\tthis.gl.bindBuffer(this.gl.ARRAY_BUFFER, null)\n\t\tlet buffer = this.gl.createBuffer()\n\t\tthis.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer)\n\t\tthis.fillBuffer()\n\t\tthis.updateBuffer()\n\n\t\t// this.vertices.push(0.0)\n\t\t// this.vertices.push(0.0)\n\t},\n\n\tkeepMoving() {\n\t\tthis.vertices[0] += this.direction[0]\n\t\tthis.vertices[1] += this.direction[1]\n\n\t\tthis.vertices = loopEdges(this.vertices, this.edge)\n\t},\n\n\tmove(x = 0, y = 0) {\n\t\tx = x * this.speed\n\t\ty = y * this.speed\n\t\tthis.log('Moving x', x, 2);\n\t\tthis.log('Moving y', y, 2);\n\n\t\tthis.direction = [x, y]\n\n\t\tthis.log('Moving:', this.direction, 2);\n\n\t\t// this.addDot()\n\n\t\t// this.vertices[0] += this.direction[0]\n\t\t// this.vertices[1] += this.direction[1]\n\t},\n\n\tdraw() {\n\t\tthis.keepMoving()\n\t\tthis.updateBuffer()\n\n\t\tthis.gl.clear(this.gl.COLOR_BUFFER_BIT)\n\n\t\tthis.gl.drawArrays(\n\t\t\tthis.gl.POINTS,\n\t\t\t0,\n\t\t\t1 // amount of objects in buffer to draw\n\t\t\t// (this.vertices.length / 3)\n\t\t)\n\n\t\t// this.gl.drawArrays(this.gl.TRIANGLES, 0, 3)\n\n\t\trequestAnimationFrame(this.draw.bind(this))\n\t\t// this.log('Drawing.')\n\n        let elapsed = parseInt((new Date() - this.startTime) / 1000);\n\t\tthis.context2d.write(elapsed)\n\t\t// this.drawElapsedTime()\n\n\t\tif (elapsed % 3 === 0) {\n\n\t\t\tApples.add()\n\t\t}\n\n\t},\n}\n\nSnake = _.assign(Engine, Snake)\n\n\nSnake.init()\nSnake.createShader()\nSnake.createVertices()\n\nconst Apples = Food.Create('apples').init(Snake.gl)\n\nSnake.draw()\nSnake.watchKeys()\nSnake.debug()\n\nconst render = (Component) => {\n\tReactDOM.render(\n\t\t<AppContainer>\n\t\t\t<Component />\n\t\t</AppContainer>,\n\t\tdocument.getElementById('app')\n\t)\n}\n\nrender(Wrapper)\n\nif (module.hot) {\n\tmodule.hot.accept('./wrapper', () => { render(Wrapper) })\n}\n",
 			"file": "src/app.js",
+			"file_size": 2986,
+			"file_write_time": 131446931112601987,
 			"settings":
 			{
-				"buffer_size": 2596,
+				"buffer_size": 3064,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/index.html",
+			"file": "src/food.js",
 			"settings":
 			{
-				"buffer_size": 420,
+				"buffer_size": 327,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -555,33 +558,29 @@
 			}
 		},
 		{
-			"contents": "// vertex shader\nimport vertex1 from './shaders/vertex1.vs'\n// fragment shader\nimport fragment1 from './shaders/fragment1.fs'\n// console.log('vertex1:', vertex1);\n// console.log('fragment1:', fragment1);\n\nexport default {\n\tgl: false,\n\tshaderProgram: false,\n\n\tinit() {\n\t\tthis.canvas = document.getElementById('snake')\n\t\tthis.canvas.focus() // so key watching is ready\n\t\tthis.gl = this.canvas.getContext('webgl')\n\t\tthis.gl.viewport(0, 0, this.canvas.width, this.canvas.height)\n\t\tthis.gl.clearColor(0.9, 0.9, 0.9, 1)\n\t},\n\n\tfillBuffer() {\n\t\tthis.gl.bufferData(\n\t\t\tthis.gl.ARRAY_BUFFER, // where it will be\n\t\t\tnew Float32Array(this.vertices), // the data\n\t\t\t// this.gl.STATIC_DRAW // how we will use the data\n\t\t\tthis.gl.DYNAMIC_DRAW // use a lot and change alot\n\t\t)\n\t},\n\n\tupdateBuffer() {\n\t\t// update some subset of data in buffer\n\t\tthis.gl.bufferSubData(\n\t\t\tthis.gl.ARRAY_BUFFER, // where it will be\n\t\t\t0, // offset\n\t\t\tnew Float32Array(this.vertices), // the data\n\t\t)\n\t},\n\n\tcreateShader() {\n\t\t// let vertexShader = vertex1\n\t\tlet vertexShader = this.gl.createShader(this.gl.VERTEX_SHADER)\n\t\tthis.gl.shaderSource(vertexShader, vertex1)\n\t\tthis.gl.compileShader(vertexShader)\n\n\t\tlet fragmentShader = this.gl.createShader(this.gl.FRAGMENT_SHADER)\n\t\tthis.gl.shaderSource(fragmentShader, fragment1)\n\t\tthis.gl.compileShader(fragmentShader)\n\n\t\tthis.shaderProgram = this.gl.createProgram()\n\t\tthis.gl.attachShader(this.shaderProgram, vertexShader)\n\t\tthis.gl.attachShader(this.shaderProgram, fragmentShader)\n\t\tthis.gl.linkProgram(this.shaderProgram)\n\t\tthis.gl.useProgram(this.shaderProgram)\n\t},\n\n\tcreateVertices() {\n\t\tthis.vertices = [\n\t\t\t0.0, 0.0, 0.0,\n\t\t]\n\n\t\tlet buffer = this.gl.createBuffer()\n\t\t// put the data in the buffer\n\t\tthis.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer)\n\t\tthis.fillBuffer()\n\n\t\tlet coords = this.gl.getAttribLocation(this.shaderProgram, 'coords')\n\n\t\t// say whats in the buffer\n\t\tthis.gl.vertexAttribPointer(\n\t\t\tcoords, \n\t\t\t2, \n\t\t\tthis.gl.FLOAT, \n\t\t\tfalse, \n\t\t\t0, \n\t\t\t0\n\t\t)\n\t\t\n\t\tthis.gl.enableVertexAttribArray(coords)\n\t\t// now we are finished with the buffer, we can unbind it\n\t\t// this.gl.bindBuffer(this.gl.ARRAY_BUFFER, null)\n\n\t\tlet pointSize = this.gl.getAttribLocation(this.shaderProgram, 'pointSize')\n\t\tthis.gl.vertexAttrib1f(pointSize, 20)\n\n\t\tlet colour = this.gl.getUniformLocation(this.shaderProgram, 'colour')\n\t\tthis.gl.uniform4f(colour, 0, 0, 0, 1)\n\t},\n\n\tlog(msg, data, level = 1) {\n\t\tif (level === 1) {\n\t\t\tconsole.log(msg, data ? data : '');\n\t\t}\n\t},\n\n\tdebug() {\n\t\tthis.log('this', this);\n\t\tthis.log('this.gl', this.gl);\n\t},\n}\n",
 			"file": "src/engine.js",
-			"file_size": 2517,
-			"file_write_time": 131422567843472691,
 			"settings":
 			{
-				"buffer_size": 2547,
+				"buffer_size": 2850,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "{\n  \"name\": \"snake\",\n  \"version\": \"1.0.0\",\n  \"main\": \"index.js\",\n  \"author\": \"rek\",\n  \"license\": \"MIT\",\n  \"homepage\": \"https://rek.github.io/snakeGL\",\n  \"scripts\": {\n    \"clean\": \"rimraf dist/*\",\n    \"lint\": \"eslint ./src\",\n    \"dev\": \"webpack-dev-server --progress --colors --env dev\",\n    \"build\": \"webpack; cp src/index.html dist\",\n    \"start\": \"yarn dev\",\n    \"deploy\": \"yarn build&&gh-pages -d build\"\n  },\n  \"devDependencies\": {\n    \"babel-core\": \"^6.24.1\",\n    \"babel-loader\": \"^6.4.1\",\n    \"babel-plugin-transform-decorators-legacy\": \"^1.3.4\",\n    \"babel-polyfill\": \"^7.0.0-alpha.12\",\n    \"babel-preset-airbnb\": \"^2.2.3\",\n    \"babel-preset-es2015-native-modules\": \"^6.9.4\",\n    \"webpack-dev-server\": \"^2.4.5\"\n  },\n  \"dependencies\": {\n    \"file-loader\": \"^0.9.0\",\n    \"gh-pages\": \"^1.0.0\",\n    \"lodash-fp\": \"^0.10.4\",\n    \"react\": \"^15.5.4\",\n    \"react-dom\": \"^15.5.4\",\n    \"react-hot-loader\": \"^3.0.0-beta.7\",\n    \"sass-loader\": \"^6.0.5\",\n    \"shader-loader\": \"^1.3.0\",\n    \"style-loader\": \"^0.17.0\",\n    \"url-loader\": \"^0.5.8\",\n    \"webpack\": \"^2.6.1\"\n  }\n}\n",
-			"file": "package.json",
-			"file_size": 1019,
-			"file_write_time": 131446892508084125,
+			"file": "src/canvasCreator.js",
 			"settings":
 			{
-				"buffer_size": 1066,
+				"buffer_size": 1063,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "dist/index.html",
+			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 420,
+				"buffer_size": 592,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -690,11 +689,17 @@
 		"/home/rek/dev/snake",
 		"/home/rek/dev/snake/dist",
 		"/home/rek/dev/snake/src",
-		"/home/rek/dev/snake/src/shaders"
+		"/home/rek/dev/snake/src/shaders",
+		"/home/rek/dev/snake/webpack"
 	],
 	"file_history":
 	[
 		"/home/rek/dev/snake/src/index.html",
+		"/home/rek/dev/snake/webpack/base.js",
+		"/home/rek/dev/snake/dist/index.html",
+		"/home/rek/dev/snake/README.md",
+		"/home/rek/dev/snake/.gitignore",
+		"/home/rek/dev/snake/package.json",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/show/templates/guide_show_intro.dust.coffee",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/templates/guide_browse.dust.coffee",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/view.js",
@@ -816,16 +821,11 @@
 		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/xero/components/disconnect.js",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/edit/controller.js",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/view.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/baseCommon.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/base.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/viewSection.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/doctype/entities/blockCore.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/document/lib/documentExtras.js",
-		"/home/rek/Downloads/videos/higher-order-components-with-functional-patterns-using-recompose/10.js"
+		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/baseCommon.js"
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -840,6 +840,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ctx",
+			"CanvasMaker",
+			"context2d",
+			"page",
+			"gl",
+			"this.canvas.getContext",
+			"this.canvas",
+			"\"",
+			"var",
+			"=",
+			"\"",
+			"g.",
 			"'",
 			", ",
 			"loopEdges",
@@ -955,19 +967,7 @@
 			"this.",
 			"finishedLoading",
 			"module",
-			"modules/integrations/app",
-			"help",
-			"deRegister",
-			"setup",
-			"load:startup:features",
-			"load:startup:features\n\n\t\t\t\t\t\t});",
-			"setup:user:modules:loaded",
-			"usermodul",
-			"lastSync",
-			"lastUpdate",
-			"last_update",
-			"Domain prefix (Required)",
-			".log"
+			"modules/integrations/app"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1019,15 +1019,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2596,
+						"buffer_size": 3064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2514,
-								2514
+								2725,
+								2725
 							]
 						],
 						"settings":
@@ -1036,45 +1036,46 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 624.0,
+						"translation.y": 1306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/index.html",
+					"file": "src/food.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 420,
+						"buffer_size": 327,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								328,
-								328
+								100,
+								106
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1102,7 +1103,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1130,7 +1131,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1139,15 +1140,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2547,
+						"buffer_size": 2850,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1987,
-								1987
+								308,
+								308
 							]
 						],
 						"settings":
@@ -1156,57 +1157,57 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 429.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/canvasCreator.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								374,
+								374
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "package.json",
+					"buffer": 6,
+					"file": "src/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1066,
+						"buffer_size": 592,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								384,
-								384
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "dist/index.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 420,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								420,
-								420
+								592,
+								592
 							]
 						],
 						"settings":
@@ -1218,7 +1219,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1226,7 +1227,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1278,7 +1279,7 @@
 	"project": "snake.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1338,7 +1339,7 @@
 		[
 			[
 				"",
-				"~/grammar-notes.sublime-project"
+				"~/dragonlaw.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1352,7 +1353,7 @@
 		],
 		"width": 825.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 		"last_automatic_layout":
@@ -1375,7 +1376,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 322.0,
+	"side_bar_width": 507.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
