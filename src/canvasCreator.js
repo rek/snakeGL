@@ -29,7 +29,6 @@ export const Canvas = {
 				}
 
 				this.context = this.canvas.getContext('webgl')
-				console.log('this.context', this.context);
 				this.context.viewport(0, 0, this.canvas.width, this.canvas.height)
 				this.setColour()
 
@@ -38,6 +37,14 @@ export const Canvas = {
 
 			setColour(r = 0.9, g = 0.9, b = 0.9, a = 1) {
 				this.context.clearColor(r, g, b, a)
+			},
+
+			getCanvas() {
+				return this.canvas
+			},
+
+			getContext() {
+				return this.context
 			},
 		},
 		'2d': {
@@ -73,6 +80,10 @@ export const Canvas = {
 
 			getCanvas() {
 				return this.canvas
+			},
+
+			getContext() {
+				return this.context
 			},
 		}
 	}

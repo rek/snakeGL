@@ -21,48 +21,67 @@ const SnakeGame = _.assign({
 	foodAddInterval: 2,
 
 	watchKeys(action) {
-		this.canvas.addEventListener('keydown', (e) => {
+		this.managerGL.getCanvas().addEventListener('keydown', (e) => {
 			// console.log('nice', e);
 			switch (e.code) {
-				case "ArrowLeft": this.move(-1, 0); break;
-				case "ArrowRight": this.move(1, 0); break;
-				case "ArrowUp": this.move(0, 1); break;
-				case "ArrowDown": this.move(0, -1); break;
+				case "ArrowLeft": action(-1, 0); break;
+				case "ArrowRight": action(1, 0); break;
+				case "ArrowUp": action(0, 1); break;
+				case "ArrowDown": action(0, -1); break;
 				default: break;
 			}
 		})
 	},
 
 	showTimer(context) {
-        let elapsed = parseInt((new Date() - this.startTime) / 1000);
-		context.write(elapsed)
+		context.write(parseInt((new Date() - Engine.startTime) / 1000))
 
 		// if (elapsed % 3 === 0) {
 		// 	Apples.add()
 		// }
 	},
+
+	start(contexts, vertices) {
+		this.managerGL = contexts.snake
+		this.managerText = contexts.snakeInfo
+
+		let snake = snakeFactory('player1');
+		this.watchKeys(snake.move)
+		snake.start(vertices, this.managerGL.getContext())
+
+		this.draw()
+	},
+
+	draw() {
+		this.showTimer(this.managerText)
+
+// Snake.draw(() => SnakeGame)
+
+		requestAnimationFrame(this.draw.bind(this))
+	},
 }, Game)
 
-const contexts = Engine.init()
-let snake = snakeFactory('player1');
+const contexts = Engine.init([{
+	mode: '2d',
+	id: 'snakeInfo',
+}, {
+	mode: '3d',
+	id: 'snake',
+	focus: true,
+}])
+
+Engine.createShader(contexts.snake.getContext())
+Engine.createVertices(contexts.snake.getContext())
+
+SnakeGame.start(contexts, Engine.vertices)
 
 // @
 // function healing(creature) {
 //   creature.healPower = true;
 // }
 
-snake.enabled();
-
-SnakeGame.showTimer(contexts.text)
-
-Engine.createShader()
-Engine.createVertices()
-
-const Apples = Food.Create('apples').init(Snake.gl)
-
-Snake.draw(() => SnakeGame)
-Snake.watchKeys()
-Snake.debug()
+// const Apples = Food.Create('apples').init(Snake.gl)
+// Snake.debug()
 
 const render = (Component) => {
 	ReactDOM.render(

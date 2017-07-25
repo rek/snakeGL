@@ -11,56 +11,58 @@ export default {
 	gl: false,
 	shaderProgram: false,
 
-	init() {
-		this.canvas2d = Canvas.Create('2d')
-		this.context2d = this.canvas2d.init('snakeInfo')
+	init(datas) {
+		const canvases = {}
 
-		this.canvasGl = Canvas.Create('3d')
-		this.contextGl = this.canvasGl.init('snake', true)
+		for (const config of datas) {
+			const canvas = Canvas.Create(config.mode)
+
+			canvas.init(config.id, config.focus)
+
+			canvases[config.id] = canvas
+		}
+
 		this.startTime = new Date();
 
-		return {
-			text: this.context2d,
-			game: this.contextGl,
-		}
+		return canvases
 	},
 
-	fillBuffer() {
-		this.contextGl.bufferData(
-			this.contextGl.ARRAY_BUFFER, // where it will be
+	fillBuffer(context) {
+		context.bufferData(
+			context.ARRAY_BUFFER, // where it will be
 			new Float32Array(this.vertices), // the data
-			// this.contextGl.STATIC_DRAW // how we will use the data
-			this.contextGl.DYNAMIC_DRAW // use a lot and change alot
+			// context.STATIC_DRAW // how we will use the data
+			context.DYNAMIC_DRAW // use a lot and change alot
 		)
 	},
 
-	updateBuffer() {
+	updateBuffer(context) {
 		// update some subset of data in buffer
-		this.contextGl.bufferSubData(
-			this.contextGl.ARRAY_BUFFER, // where it will be
+		context.bufferSubData(
+			context.ARRAY_BUFFER, // where it will be
 			0, // offset
 			new Float32Array(this.vertices), // the data
 		)
 	},
 
-	createShader() {
+	createShader(context) {
 		// let vertexShader = vertex1
-		let vertexShader = this.contextGl.createShader(this.contextGl.VERTEX_SHADER)
-		this.contextGl.shaderSource(vertexShader, vertex1)
-		this.contextGl.compileShader(vertexShader)
+		let vertexShader = context.createShader(context.VERTEX_SHADER)
+		context.shaderSource(vertexShader, vertex1)
+		context.compileShader(vertexShader)
 
-		let fragmentShader = this.contextGl.createShader(this.contextGl.FRAGMENT_SHADER)
-		this.contextGl.shaderSource(fragmentShader, fragment1)
-		this.contextGl.compileShader(fragmentShader)
+		let fragmentShader = context.createShader(context.FRAGMENT_SHADER)
+		context.shaderSource(fragmentShader, fragment1)
+		context.compileShader(fragmentShader)
 
-		this.shaderProgram = this.contextGl.createProgram()
-		this.contextGl.attachShader(this.shaderProgram, vertexShader)
-		this.contextGl.attachShader(this.shaderProgram, fragmentShader)
-		this.contextGl.linkProgram(this.shaderProgram)
-		this.contextGl.useProgram(this.shaderProgram)
+		this.shaderProgram = context.createProgram()
+		context.attachShader(this.shaderProgram, vertexShader)
+		context.attachShader(this.shaderProgram, fragmentShader)
+		context.linkProgram(this.shaderProgram)
+		context.useProgram(this.shaderProgram)
 	},
 
-	createVertices() {
+	createVertices(context) {
 		this.vertices = [
 			0.0, 0.0, 0.0,
 			0.0, 0.0, 0.0,
@@ -74,32 +76,32 @@ export default {
 			0.0, 0.0, 0.0,
 		]
 
-		let buffer = this.contextGl.createBuffer()
+		let buffer = context.createBuffer()
 		// put the data in the buffer
-		this.contextGl.bindBuffer(this.contextGl.ARRAY_BUFFER, buffer)
-		this.fillBuffer()
+		context.bindBuffer(context.ARRAY_BUFFER, buffer)
+		this.fillBuffer(context)
 
-		let coords = this.contextGl.getAttribLocation(this.shaderProgram, 'coords')
+		let coords = context.getAttribLocation(this.shaderProgram, 'coords')
 
 		// say whats in the buffer
-		this.contextGl.vertexAttribPointer(
+		context.vertexAttribPointer(
 			coords,
 			2,
-			this.contextGl.FLOAT,
+			context.FLOAT,
 			false,
 			0,
 			0
 		)
 
-		this.contextGl.enableVertexAttribArray(coords)
+		context.enableVertexAttribArray(coords)
 		// now we are finished with the buffer, we can unbind it
-		// this.contextGl.bindBuffer(this.contextGl.ARRAY_BUFFER, null)
+		// context.bindBuffer(context.ARRAY_BUFFER, null)
 
-		let pointSize = this.contextGl.getAttribLocation(this.shaderProgram, 'pointSize')
-		this.contextGl.vertexAttrib1f(pointSize, 20)
+		let pointSize = context.getAttribLocation(this.shaderProgram, 'pointSize')
+		context.vertexAttrib1f(pointSize, 20)
 
-		let colour = this.contextGl.getUniformLocation(this.shaderProgram, 'colour')
-		this.contextGl.uniform4f(colour, 0, 0, 0, 1)
+		let colour = context.getUniformLocation(this.shaderProgram, 'colour')
+		context.uniform4f(colour, 0, 0, 0, 1)
 	},
 
 	log(msg, data, level = 1) {
