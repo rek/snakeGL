@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"app",
+				"apple"
+			],
+			[
+				"mana",
+				"managerGL"
+			],
+			[
+				"ca",
+				"canvases"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
 				"const",
 				"contexts"
 			],
@@ -268,10 +284,6 @@
 				"renderSignerComponent"
 			],
 			[
-				"ca",
-				"cachedLogo"
-			],
-			[
 				"lo",
 				"location"
 			],
@@ -396,10 +408,6 @@
 				"callList"
 			],
 			[
-				"con",
-				"contextName"
-			],
-			[
 				"ty",
 				"typeData"
 			],
@@ -464,10 +472,6 @@
 				"BaseApp"
 			],
 			[
-				"app",
-				"appTheme"
-			],
-			[
 				"l",
 				"l\tLogger"
 			],
@@ -510,23 +514,45 @@
 			[
 				"not",
 				"notify"
-			],
-			[
-				"org",
-				"organisation"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "import _ from 'lodash-fp'\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport {AppContainer} from 'react-hot-loader'\nimport Wrapper from './wrapper'\n\nimport Engine from './engine'\nimport {snakeFactory} from './snake'\nimport {Food} from './food'\n\nconst Game = {\n\tstartTime: 0,\n\ttotalTime: 0,\n\n\tinit() {\n\t},\n}\n\nconst SnakeGame = _.assign({\n\tapples: 0,\n\tfoodAddInterval: 2,\n\n\twatchKeys(action) {\n\t\tthis.webgl.canvas.addEventListener('keydown', (e) => {\n\t\t\t// console.log('nice', e);\n\t\t\tswitch (e.code) {\n\t\t\t\tcase \"ArrowLeft\": action(-1, 0); break;\n\t\t\t\tcase \"ArrowRight\": action(1, 0); break;\n\t\t\t\tcase \"ArrowUp\": action(0, 1); break;\n\t\t\t\tcase \"ArrowDown\": action(0, -1); break;\n\t\t\t\tdefault: break;\n\t\t\t}\n\t\t})\n\t},\n\n\tshowTimer(context) {\n\t\tcontext.write(parseInt((new Date() - this.startTime) / 1000))\n\n\t\t// if (elapsed % 3 === 0) {\n\t\t// \tApples.add()\n\t\t// }\n\t},\n\n\tstart(contexts, vertices) {\n\t\tthis.webgl = contexts.game\n\t\tthis.contextText = contexts.text\n\n\n\t\tlet snake = snakeFactory('player1');\n\t\tthis.watchKeys(snake.move)\n\t\tsnake.start(vertices, this.webgl.context)\n\n\t\tthis.draw()\n\t},\n\n\tdraw() {\n\t\tconsole.log('this.contextText', this.contextText);\n\t\tthis.showTimer(this.contextText)\n// Snake.draw(() => SnakeGame)\n\t\t// requestAnimationFrame(this.draw.bind(this))\n\n\t},\n}, Game)\n\nconst contexts = Engine.init()\n\nEngine.createShader()\nEngine.createVertices()\nSnakeGame.start(contexts, Engine.vertices)\n\n// @\n// function healing(creature) {\n//   creature.healPower = true;\n// }\n\n// const Apples = Food.Create('apples').init(Snake.gl)\n// Snake.debug()\n\nconst render = (Component) => {\n\tReactDOM.render(\n\t\t<AppContainer>\n\t\t\t<Component />\n\t\t</AppContainer>,\n\t\tdocument.getElementById('app')\n\t)\n}\n\nrender(Wrapper)\n\nif (module.hot) {\n\tmodule.hot.accept('./wrapper', () => { render(Wrapper) })\n}\n",
 			"file": "src/app.js",
-			"file_size": 1830,
-			"file_write_time": 131452804544402039,
 			"settings":
 			{
-				"buffer_size": 1799,
+				"buffer_size": 2587,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/rek/dev/FunWithWebGL2/lesson_002/Shaders.js",
+			"settings":
+			{
+				"buffer_size": 2590,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/rek/dev/FunWithWebGL2/lesson_002/viewer.html",
+			"settings":
+			{
+				"buffer_size": 4490,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "import Drawable from './drawable'\n\nexport const Food = {\n\tstart(context) {\n\t\tthis.vertices = [\n\t\t\t0.2, 0.2, 0.0,\n\t\t\t0.4, 0.4, 0.0,\n\t\t]\n\t\tthis.context = context\n\n\t\tthis.createShader(this.context)\n\t\tthis.createVertices(this.context, this.vertices, 4)\n\t},\n\n\tadd() {\n\t\tconsole.log('Adding apple!');\n\t\tconsole.log('this', this);\n\t},\n\n\tremove() {\n\t\tconsole.log('this', this);\n\t},\n\n\tdraw() {\n\t\tthis.context.drawArrays(\n\t\t\tthis.context.POINTS,\n\t\t\t0,\n\t\t\t1 // amount of objects in buffer to draw\n\t\t\t// (this.vertices.length / 3)\n\t\t)\n\t}\n};\n\nexport const foodFactory = () => Object.assign(\n\tObject.create(Food),\n\tDrawable,\n\t{\n\t}\n);\n",
+			"file": "src/food.js",
+			"file_size": 673,
+			"file_write_time": 131455609171874297,
+			"settings":
+			{
+				"buffer_size": 620,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -534,33 +560,7 @@
 			"file": "src/snake.js",
 			"settings":
 			{
-				"buffer_size": 2106,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/food.js",
-			"settings":
-			{
-				"buffer_size": 333,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/shaders/fragment1.fs",
-			"settings":
-			{
-				"buffer_size": 91,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/shaders/vertex1.vs",
-			"settings":
-			{
-				"buffer_size": 121,
+				"buffer_size": 2551,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -569,19 +569,46 @@
 			"file": "src/engine.js",
 			"settings":
 			{
-				"buffer_size": 2998,
+				"buffer_size": 594,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "const _getCanvas = (el, focus = false) => {\n\tconst canvas = document.getElementById(el)\n\n\tif (!canvas) {\n\t\tconsole.error('Error making canvas with id:', el)\n\t\treturn\n\t}\n\n\tif (focus) {\n\t\tcanvas.focus() // so key watching is ready\n\t}\n\n\treturn canvas\n}\n\nexport const Canvas = {\n\tCreate (bundle) {\n\t\treturn Object.create(this.types[bundle]);\n\t},\n\n\n\ttypes: {\n\t\t'3d': {\n\t\t\tinit(el, focus) {\n\t\t\t\tthis.canvas = _getCanvas(el, focus)\n\n\t\t\t\tif (!this.canvas) {\n\t\t\t\t\treturn\n\t\t\t\t}\n\n\t\t\t\tthis.context = this.canvas.getContext('webgl')\n\t\t\t\tthis.context.viewport(0, 0, this.canvas.width, this.canvas.height)\n\t\t\t\tthis.setColour()\n\n\t\t\t\treturn this.context\n\t\t\t},\n\n\t\t\tsetColour(r = 0.9, g = 0.9, b = 0.9, a = 1) {\n\t\t\t\tthis.context.clearColor(r, g, b, a)\n\t\t\t},\n\t\t},\n\t\t'2d': {\n\t\t\tinit(el, focus) {\n\t\t\t\tthis.canvas = _getCanvas(el, focus)\n\n\t\t\t\tif (!this.canvas) {\n\t\t\t\t\treturn\n\t\t\t\t}\n\n\t\t\t\tthis.context = this.canvas.getContext('2d')\n\n\t\t\t\tif (!this.context) {\n\t\t\t\t\tconsole.error('Error creating canvas, mode: 2d')\n\t\t\t\t\treturn\n\t\t\t\t}\n\n\t\t\t\t// console.log('this.context', this.context);\n\t\t\t\treturn this.context\n\t\t\t},\n\n\t\t\twrite(text) {\n\t\t        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);\n\t\t        this.context.save();\n\t\t        this.context.beginPath();\n\t\t        this.context.fillStyle = 'black';\n\t\t        this.context.font = '24px Verdana'\n\t\t        // draw the running time at half opacity\n\t\t        this.context.globalAlpha = 0.50;\n\t\t        this.context.fillText(text, this.canvas.width - 75,25);\n\t\t        this.context.restore();\n\t\t\t},\n\n\t\t\tgetCanvas() {\n\t\t\t\treturn this.canvas\n\t\t\t},\n\t\t}\n\t}\n};\n",
-			"file": "src/canvasCreator.js",
-			"file_size": 1643,
-			"file_write_time": 131452745313448128,
+			"file": "src/drawable.js",
 			"settings":
 			{
-				"buffer_size": 1596,
+				"buffer_size": 2204,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "runner\nUncompressed size: 6230577 bytes.\nCompressed size: 188537 bytes gzipped. (660383 bytes minified)\n\nauth_app\nUncompressed size: 6230577 bytes.\nCompressed size: 22769 bytes gzipped. (85883 bytes minified)\n\nmenu_app\nUncompressed size: 6230577 bytes.\nCompressed size: 31088 bytes gzipped. (121722 bytes minified)\n\nauth_listners2\nUncompressed size: 6230577 bytes.\nCompressed size: 12139 bytes gzipped. (43433 bytes minified)\n\nmodules/documentAdmin/app\nUncompressed size: 6230577 bytes.\nCompressed size: 15250 bytes gzipped. (56293 bytes minified)\n\ndocument_app\nUncompressed size: 6230577 bytes.\nCompressed size: 151189 bytes gzipped. (750022 bytes minified)\n",
+			"settings":
+			{
+				"buffer_size": 659,
+				"line_ending": "Unix",
+				"name": "runner"
+			}
+		},
+		{
+			"file": "/home/rek/dev/dragonlaw/package.json",
+			"settings":
+			{
+				"buffer_size": 5114,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "const _getCanvas = (el, focus = false) => {\n\tconst canvas = document.getElementById(el)\n\n\tif (!canvas) {\n\t\tconsole.error('Error making canvas with id:', el)\n\t\treturn\n\t}\n\n\tif (focus) {\n\t\tcanvas.focus() // so key watching is ready\n\t}\n\n\treturn canvas\n}\n\nexport const Canvas = {\n\tCreate (bundle) {\n\t\treturn Object.create(this.types[bundle]);\n\t},\n\n\n\ttypes: {\n\t\t'3d': {\n\t\t\tinit(el, focus) {\n\t\t\t\tthis.canvas = _getCanvas(el, focus)\n\n\t\t\t\tif (!this.canvas) {\n\t\t\t\t\treturn\n\t\t\t\t}\n\n\t\t\t\tthis.context = this.canvas.getContext('webgl')\n\t\t\t\tthis.context.viewport(0, 0, this.canvas.width, this.canvas.height)\n\t\t\t\tthis.setColour()\n\n\t\t\t\treturn this.context\n\t\t\t},\n\n\t\t\tsetColour(r = 0.9, g = 0.9, b = 0.9, a = 1) {\n\t\t\t\tthis.context.clearColor(r, g, b, a)\n\t\t\t},\n\n\t\t\tgetCanvas() {\n\t\t\t\treturn this.canvas\n\t\t\t},\n\n\t\t\tgetContext() {\n\t\t\t\treturn this.context\n\t\t\t},\n\t\t},\n\t\t'2d': {\n\t\t\tinit(el, focus) {\n\t\t\t\tthis.canvas = _getCanvas(el, focus)\n\n\t\t\t\tif (!this.canvas) {\n\t\t\t\t\treturn\n\t\t\t\t}\n\n\t\t\t\tthis.context = this.canvas.getContext('2d')\n\n\t\t\t\tif (!this.context) {\n\t\t\t\t\tconsole.error('Error creating canvas, mode: 2d')\n\t\t\t\t\treturn\n\t\t\t\t}\n\n\t\t\t\t// console.log('this.context', this.context);\n\t\t\t\treturn this.context\n\t\t\t},\n\n\t\t\twrite(text) {\n\t\t\t\tthis.context.clearRect(0, 0, this.canvas.width, this.canvas.height);\n\t\t\t\tthis.context.save();\n\t\t\t\tthis.context.beginPath();\n\t\t\t\tthis.context.fillStyle = 'black';\n\t\t\t\tthis.context.font = '24px Verdana'\n\t\t\t\t// draw the running time at half opacity\n\t\t\t\tthis.context.globalAlpha = 0.50;\n\t\t\t\tthis.context.fillText(text, this.canvas.width - 75,25);\n\t\t\t\tthis.context.restore();\n\t\t\t},\n\n\t\t\tgetCanvas() {\n\t\t\t\treturn this.canvas\n\t\t\t},\n\n\t\t\tgetContext() {\n\t\t\t\treturn this.context\n\t\t\t},\n\t\t}\n\t}\n};\n",
+			"file": "src/canvasCreator.js",
+			"file_size": 1741,
+			"file_write_time": 131454677779927939,
+			"settings":
+			{
+				"buffer_size": 1687,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -691,23 +718,29 @@
 		"/home/rek/dev/snake/dist",
 		"/home/rek/dev/snake/src",
 		"/home/rek/dev/snake/src/shaders",
-		"/home/rek/dev/snake/webpack"
+		"/home/rek/dev/snake/webpack",
+		"/home/rek/dev/FunWithWebGL2",
+		"/home/rek/dev/FunWithWebGL2/lesson_002"
 	],
 	"file_history":
 	[
+		"/home/rek/dev/snake/src/shaders/vertex1.vs",
+		"/home/rek/dev/snake/src/shaders/fragment1.fs",
+		"/home/rek/dev/snake/src/wrapper.js",
+		"/home/rek/dev/snake/.eslintrc.json",
+		"/home/rek/dev/snake/package.json",
+		"/home/rek/dev/dragonlaw/package.json",
 		"/home/rek/dev/snake/src/index.html",
 		"/home/rek/dev/snake/webpack/base.js",
 		"/home/rek/dev/snake/dist/index.html",
 		"/home/rek/dev/snake/README.md",
 		"/home/rek/dev/snake/.gitignore",
-		"/home/rek/dev/snake/package.json",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/show/templates/guide_show_intro.dust.coffee",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/templates/guide_browse.dust.coffee",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/view.js",
 		"/home/rek/Documents/notes",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/components/guide_browse_slat.js",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/guide/browse/components/guide_browse_list.js",
-		"/home/rek/dev/dragonlaw/package.json",
 		"/home/rek/dev/dragonlaw/src/info.json",
 		"/home/rek/dev/dragonlaw/src/scripts/test/suiteConfig.js",
 		"/home/rek/dev/dragonlaw/src/scripts/modules/intercomAdmin/test/controllerSearch.spec.js",
@@ -818,11 +851,7 @@
 		"/home/rek/dev/dragonlaw/src/scripts/test/app-test.js",
 		"/home/rek/dev/dragonlaw/src/scripts/baseApp/baseModels.js",
 		"/home/rek/dev/dragonlaw/out/imported/backbone-marionette.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/help/loaderTest.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/integrations/xero/components/disconnect.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/partnerAdmin/edit/controller.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/view.js",
-		"/home/rek/dev/dragonlaw/src/scripts/modules/document/edit/types/baseCommon.js"
+		"/home/rek/dev/dragonlaw/src/scripts/modules/help/loaderTest.js"
 	],
 	"find":
 	{
@@ -841,6 +870,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"this.context",
+			"this.Engine",
+			"this",
+			"\"",
+			"es2015",
+			"Engine",
+			"this",
+			".snake",
+			"this.contextGl",
 			"this.move",
 			"this.gl",
 			"loopEdges",
@@ -959,16 +997,7 @@
 			"integrationPartials",
 			"xero",
 			"page",
-			"connect",
-			"checkState",
-			"connect",
-			"checkState",
-			"this.props.",
-			"integrat",
-			"message",
-			"hide",
-			"_register",
-			"group"
+			"connect"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1011,7 +1040,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1020,15 +1049,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1799,
+						"buffer_size": 2587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1195,
-								1195
+								373,
+								373
 							]
 						],
 						"settings":
@@ -1037,27 +1066,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 299.0,
+						"translation.y": 78.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/snake.js",
+					"file": "/home/rek/dev/FunWithWebGL2/lesson_002/Shaders.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2106,
+						"buffer_size": 2590,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1483,
-								1483
+								1660,
+								1660
 							]
 						],
 						"settings":
@@ -1066,19 +1095,19 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/food.js",
-					"semi_transient": false,
+					"file": "/home/rek/dev/FunWithWebGL2/lesson_002/viewer.html",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 333,
+						"buffer_size": 4490,
 						"regions":
 						{
 						},
@@ -1091,6 +1120,35 @@
 						],
 						"settings":
 						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 312.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/food.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								244,
+								244
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": false
@@ -1099,86 +1157,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 3,
-					"file": "src/shaders/fragment1.fs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 91,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								91,
-								91
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "src/shaders/vertex1.vs",
+					"file": "src/snake.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 121,
+						"buffer_size": 2551,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								121,
-								121
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/engine.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2998,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								361,
-								361
+								578,
+								578
 							]
 						],
 						"settings":
@@ -1187,27 +1183,149 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 780.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
-					"buffer": 6,
-					"file": "src/canvasCreator.js",
+					"buffer": 5,
+					"file": "src/engine.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1596,
+						"buffer_size": 594,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								249,
-								249
+								461,
+								461
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/drawable.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1916,
+								1916
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								659,
+								659
+							]
+						],
+						"settings":
+						{
+							"auto_name": "runner",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/rek/dev/dragonlaw/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/canvasCreator.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1135,
+								1135
 							]
 						],
 						"settings":
@@ -1217,10 +1335,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 273.0,
+						"translation.y": 299.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1377,7 +1495,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 511.0,
+	"side_bar_width": 485.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

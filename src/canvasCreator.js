@@ -14,7 +14,7 @@ const _getCanvas = (el, focus = false) => {
 }
 
 export const Canvas = {
-	Create (bundle) {
+	Create(bundle) {
 		return Object.create(this.types[bundle]);
 	},
 
@@ -66,16 +66,19 @@ export const Canvas = {
 				return this.context
 			},
 
-			write(text) {
-		        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		        this.context.save();
-		        this.context.beginPath();
-		        this.context.fillStyle = 'black';
-		        this.context.font = '24px Verdana'
-		        // draw the running time at half opacity
-		        this.context.globalAlpha = 0.50;
-		        this.context.fillText(text, this.canvas.width - 75,25);
-		        this.context.restore();
+			write(text, xPosition = 75, yPosition = 25, options = {}) {
+				if (options.clear) {
+					this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+				}
+
+				this.context.save();
+				this.context.beginPath();
+				this.context.fillStyle = 'black';
+				this.context.font = '24px Verdana'
+				// draw the running time at half opacity
+				this.context.globalAlpha = 0.50;
+				this.context.fillText(text, this.canvas.width - xPosition, yPosition);
+				this.context.restore();
 			},
 
 			getCanvas() {

@@ -1,3 +1,6 @@
+import Drawable from './drawable'
+import _ from 'lodash-fp'
+
 const loopEdges = (positions, edge) => {
 	const newPositions = _.clone(positions)
 
@@ -30,12 +33,27 @@ const Snake = {
 	positionX: 0,
 	positionY: 0,
 
-	alive: false,
+	alive: true,
 
-	start(vertices, context) {
-		this.vertices = vertices
+	start(context) {
+		this.vertices = [
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+			0.0, 0.0, 0.0,
+		]
 		this.context = context
-		// this.draw()
+
+		// this.move = this.move.bind(this)
+
+		this.createShader(this.context)
+		// this.createVertices(this.context, this.vertices, 20)
 	},
 
 	resetSpeed() {
@@ -62,6 +80,7 @@ const Snake = {
 		this.vertices[1] += this.direction[1]
 
 		this.vertices = loopEdges(this.vertices, this.edge)
+		// console.log('SNAKES this.vertices', this.vertices);
 	},
 
 	move(x = 0, y = 0) {
@@ -83,14 +102,18 @@ const Snake = {
 	draw() {
 		if (!this.alive) {
 			console.error('GAME OVER!')
-			return
+			return false
 		}
 
 		this.keepMoving()
-		this.updateBuffer()
+		// this.updateBuffer()
 
-		this.context.clear(this.context.COLOR_BUFFER_BIT)
 
+		this.createVertices(this.context, this.vertices, 20)
+		// update buffer
+		this.updateBuffer(this.context)
+
+		// draw
 		this.context.drawArrays(
 			this.context.POINTS,
 			0,
@@ -102,9 +125,15 @@ const Snake = {
 
 		// requestAnimationFrame(this.draw.bind(this))
 		// this.log('Drawing.')
+
+		return true
 	},
 }
 
-export const snakeFactory = (name) => Object.assign(Object.create(Snake), {
-  name
-});
+export const snakeFactory = (name) => Object.assign(
+	Object.create(Snake),
+	Drawable,
+	{
+		name
+	}
+);

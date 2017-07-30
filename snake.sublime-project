@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/rek/dev/FunWithWebGL2"
 		}
 	]
 }
